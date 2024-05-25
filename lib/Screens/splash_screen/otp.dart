@@ -66,7 +66,7 @@ class OTP_Screen extends StatelessWidget {
                       ),
                       onChanged: (pin) {
                         if (pin == "12345") {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => const Home_Screen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
                           otpController.clear();
                         }
                       },
