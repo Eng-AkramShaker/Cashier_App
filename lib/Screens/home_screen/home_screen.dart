@@ -1,8 +1,10 @@
-// ignore_for_file: non_constant_identifier_names, must_be_immutable, camel_case_types, unused_local_variable, unused_field, constant_identifier_names, unused_element, sized_box_for_whitespace, avoid_unnecessary_containers, prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: non_constant_identifier_names, must_be_immutable, camel_case_types, unused_local_variable, unused_field, constant_identifier_names, unused_element, sized_box_for_whitespace, avoid_unnecessary_containers, prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print
 
 import 'package:cashier/model/itemes_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../controllers/categories_provider/categories.dart';
 import '../../widets/cards/costume_card.dart';
 import '../../widets/texts/custom_text.dart';
 import '../../widets/cards/profile_card.dart';
@@ -35,128 +37,153 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    final prov_Category = Provider.of<Categories_Provider>(context, listen: false);
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 50),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      height: 70,
-                      width: 150,
-                      child: Image.network("https://i.imgur.com/v3dvpCE.gif", fit: BoxFit.fitWidth),
-                    ),
-                    ProfileCard(),
-                  ],
-                ),
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+        body: Stack(
+          children: [
+            Container(
+              height: double.infinity,
+              width: double.infinity,
+              child: Image.asset('assets/images/bg.jpg', height: 100, width: 200, fit: BoxFit.cover),
+            ),
+            Container(
+              height: double.infinity,
+              width: double.infinity,
+              color: Color.fromARGB(96, 0, 0, 0),
+              child: Column(
                 children: [
-                  Container(
-                    height: size.height / 1.12,
-                    width: size.width / 2.27,
-                    color: Colors.green,
-                    child: Total_Screen(),
-                  ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 23),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    padding: EdgeInsets.symmetric(horizontal: 50),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Custom_Text(text: 'Category ', size: 25, color: Colors.white),
-                        const SizedBox(height: 18),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            CategoryButton(
-                              title: "Most Ordered",
-                              icon: Icons.whatshot,
-                              isSelected: selectedCategory == 0,
-                              onTap: () {
-                                setState(() {
-                                  Category = items_1;
-                                  selectedCategory = 0;
-                                });
-                              },
-                            ),
-                            const SizedBox(width: 25),
-                            CategoryButton(
-                              title: "Main Meals",
-                              icon: Icons.set_meal_outlined,
-                              isSelected: selectedCategory == 1,
-                              onTap: () {
-                                setState(() {
-                                  Category = items_2;
-                                  selectedCategory = 1;
-                                });
-                              },
-                            ),
-                            const SizedBox(width: 25),
-                            CategoryButton(
-                              title: "Sandwich",
-                              icon: Icons.fastfood_outlined,
-                              isSelected: selectedCategory == 2,
-                              onTap: () {
-                                setState(() {
-                                  Category = items_3;
-                                  selectedCategory = 2;
-                                });
-                              },
-                            ),
-                            const SizedBox(width: 25),
-                            CategoryButton(
-                              title: "Drinks",
-                              icon: Icons.local_drink_outlined,
-                              isSelected: selectedCategory == 3,
-                              onTap: () {
-                                setState(() {
-                                  Category = items_4;
-                                  selectedCategory = 3;
-                                });
-                              },
-                            ),
-                          ],
+                        SizedBox(
+                          height: 70,
+                          width: 150,
+                          child: Image.network("https://i.imgur.com/v3dvpCE.gif", fit: BoxFit.fitWidth),
                         ),
-                        Container(
-                          height: size.height / 1.4,
-                          width: size.width / 1.9,
-                          // color: Colors.white,
-                          padding: EdgeInsets.only(top: 30, left: 15),
-                          child: GridView.builder(
-                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3, // عدد الأعمدة
-                              crossAxisSpacing: 12, // المسافة الأفقية بين العناصر
-                              mainAxisSpacing: 0, // المسافة العمودية بين العناصر
-                            ),
-                            itemCount: Category.length,
-                            itemBuilder: (context, index) {
-                              return Column(
-                                children: [
-                                  Costume_card(
-                                    img: Category[index]['img'].toString(),
-                                    title: Category[index]['title'].toString(),
-                                    price: Category[index]['price'].toString(),
-                                  ),
-                                ],
-                              );
-                            },
-                          ),
-                        ),
+                        ProfileCard(),
                       ],
                     ),
                   ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: size.height / 1.12,
+                        width: size.width / 2.3,
+                        color: Color.fromRGBO(148, 194, 255, 0.37),
+                        child: Total_Screen(),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 23),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Custom_Text(text: 'Category ', size: 25, color: Colors.white),
+                            const SizedBox(height: 18),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                CategoryButton(
+                                  title: "Most Ordered",
+                                  icon: Icons.whatshot,
+                                  isSelected: selectedCategory == 0,
+                                  onTap: () {
+                                    setState(() {
+                                      Category = items_1;
+                                      selectedCategory = 0;
+                                    });
+                                  },
+                                ),
+                                const SizedBox(width: 25),
+                                CategoryButton(
+                                  title: "Main Meals",
+                                  icon: Icons.set_meal_outlined,
+                                  isSelected: selectedCategory == 1,
+                                  onTap: () {
+                                    setState(() {
+                                      Category = items_2;
+                                      selectedCategory = 1;
+                                    });
+                                  },
+                                ),
+                                const SizedBox(width: 25),
+                                CategoryButton(
+                                  title: "Sandwich",
+                                  icon: Icons.fastfood_outlined,
+                                  isSelected: selectedCategory == 2,
+                                  onTap: () {
+                                    setState(() {
+                                      Category = items_3;
+                                      selectedCategory = 2;
+                                    });
+                                  },
+                                ),
+                                const SizedBox(width: 25),
+                                CategoryButton(
+                                  title: "Drinks",
+                                  icon: Icons.local_drink_outlined,
+                                  isSelected: selectedCategory == 3,
+                                  onTap: () {
+                                    setState(() {
+                                      Category = items_4;
+                                      selectedCategory = 3;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: size.height / 1.4,
+                              width: size.width / 1.9,
+                              // color: Colors.white,
+                              padding: EdgeInsets.only(top: 30, left: 15),
+                              child: GridView.builder(
+                                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 3, // عدد الأعمدة
+                                  crossAxisSpacing: 12, // المسافة الأفقية بين العناصر
+                                  mainAxisSpacing: 0, // المسافة العمودية بين العناصر
+                                ),
+                                itemCount: Category.length,
+                                itemBuilder: (context, index) {
+                                  return Column(
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          //
+
+                                          prov_Category.addCategory({
+                                            "title": Category[index]['title'].toString(),
+                                            "price": Category[index]['price'],
+                                          });
+                                          setState(() {
+                                            prov_Category.count += Category[index]['price'];
+                                          });
+                                        },
+                                        child: Costume_card(
+                                          img: Category[index]['img'].toString(),
+                                          title: Category[index]['title'].toString(),
+                                          price: Category[index]['price'].toString(),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

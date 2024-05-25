@@ -32,7 +32,7 @@ class OTP_Screen extends StatelessWidget {
                 children: [
                   const SizedBox(height: 200),
                   SizedBox(
-                    height: 150,
+                    height: 180,
                     width: 440,
                     child: Image.network(
                       "https://i.imgur.com/z7FBnXt.png",

@@ -4,14 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'otp.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return EasySplashScreen(
@@ -20,8 +15,8 @@ class _SplashScreenState extends State<SplashScreen> {
         'https://i.imgur.com/kNksgmP.gif',
       ),
       title: Text(
-        "\" Food is not just about sustenance,\n it's a gateway to culture, a celebration of flavors, and a symphony of experiences,\n all served on the plate of a well-crafted restaurant.\"",
-        style: GoogleFonts.playfairDisplay(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.amber[200]
+        "اهلا وسهلا في اجمل مطعم في العالم",
+        style: GoogleFonts.playfairDisplay(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.amber[200]
             //Color(0xFFFBC02D)
             ),
       ),

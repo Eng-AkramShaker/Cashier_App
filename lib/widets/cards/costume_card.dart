@@ -3,33 +3,50 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../texts/custom_text.dart';
+
 Widget Costume_card({required String img, required String title, required String price}) {
-  return Card(
-    color: Colors.transparent,
-    child: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: const Color(0xFFFBC02D)),
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12)),
-              child: Image.network(img, height: 100, width: 200, fit: BoxFit.cover),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              title,
-              style: GoogleFonts.robotoSlab(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              price,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
-                color: Colors.black,
-              ),
-            ),
-            const SizedBox(height: 8),
-          ],
-        )),
+  return Stack(
+    children: [
+      Card(
+        color: Colors.transparent,
+        child: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: const Color(0xFFFBC02D)),
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12)),
+                  child: Image.network(img, height: 100, width: 200, fit: BoxFit.cover),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  title,
+                  style: GoogleFonts.robotoSlab(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  'SR  $price',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 8),
+              ],
+            )),
+      ),
+
+      // --------------------------------------------------------------------
+
+      Container(
+        height: 25,
+        width: 50,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: Colors.white),
+        child: Center(
+          child: Custom_Text(text: '42 ', size: 15, color: Colors.black),
+        ),
+      ),
+    ],
   );
 }

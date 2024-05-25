@@ -2,23 +2,38 @@
 
 import 'package:flutter/material.dart';
 
-Widget Custom_Button(BuildContext? context, onPressed, {IconData? icon, String? title, double? size_text, Color_text}) {
+Widget Custom_Button({
+  required BuildContext context,
+  required onPressed,
+  double? horizontal,
+  double? vertical,
+  double? circular,
+  IconData? icon,
+  String? title,
+  double? size_text,
+  double? size_icon,
+  backgroundColor,
+  Color_text,
+}) {
   return ElevatedButton(
     style: TextButton.styleFrom(
-      backgroundColor: Colors.blue,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100.0)),
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-      minimumSize: const Size(10, 10),
+      backgroundColor: backgroundColor ?? Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(circular ?? 8),
+        side: const BorderSide(color: Colors.black, width: 2.8),
+      ),
+      padding: EdgeInsets.symmetric(horizontal: horizontal ?? 15.0, vertical: vertical ?? 8),
+      minimumSize: const Size(20, 20),
     ),
     onPressed: onPressed,
     child: icon != null
-        ? Icon(icon, color: Colors.white, size: 35)
+        ? Icon(icon, color: Colors.amber[900], size: size_icon ?? 35)
         : Text(
             title ?? '',
             style: TextStyle(
-              color: Color_text ?? Colors.white,
-              fontSize: size_text ?? 20,
-              fontWeight: FontWeight.bold,
+              color: Color_text ?? Colors.amber[900],
+              fontSize: size_text ?? 18,
+              fontWeight: FontWeight.normal,
               fontFamily: 'Lemonada',
             ),
           ),
