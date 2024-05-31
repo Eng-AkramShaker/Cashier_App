@@ -1,14 +1,16 @@
 // ignore_for_file: non_constant_identifier_names, must_be_immutable, camel_case_types, unused_local_variable, unused_field, constant_identifier_names, unused_element, sized_box_for_whitespace, avoid_unnecessary_containers, prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print
 
+import 'package:cashier/Screens/home_screen/widgets/category_button.dart';
+import 'package:cashier/core/constants/constants.dart';
 import 'package:cashier/models/itemes_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../controllers/categories_provider/categories.dart';
-import '../../widets/cards/costume_card.dart';
-import '../../widets/show_snack/select_menu.dart';
-import '../../widets/texts/custom_text.dart';
-import '../../widets/cards/profile_card.dart';
+import '../../core/widgets/cards/costume_card.dart';
+import '../../core/widgets/show_snack/select_menu.dart';
+import '../../core/widgets/texts/custom_text.dart';
+import '../../core/widgets/cards/profile_card.dart';
 import '../total_screen/total_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -53,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               height: double.infinity,
               width: double.infinity,
-              color: Color.fromARGB(96, 0, 0, 0),
+              color: w_bgColor,
               child: Column(
                 children: [
                   Padding(
@@ -76,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Container(
                         height: size.height / 1.12,
                         width: size.width / 2.3,
-                        color: Color.fromRGBO(148, 194, 255, 0.37),
+                        color: w_bluColor,
                         child: Total_Screen(),
                       ),
 
@@ -87,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Custom_Text(text: 'Category ', size: 25, color: Colors.white),
+                            Custom_Text(text: 'Category ', size: 25, color: wtColor),
                             const SizedBox(height: 18),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -224,43 +226,5 @@ class _HomeScreenState extends State<HomeScreen> {
 //                               child: Text('data'),
 //                             ),
 
-class CategoryButton extends StatelessWidget {
-  final String title;
-  final IconData icon;
-  final bool isSelected;
-  final VoidCallback onTap;
 
-  const CategoryButton({
-    required this.title,
-    required this.icon,
-    required this.isSelected,
-    required this.onTap,
-    Key? key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: isSelected ? Colors.white : const Color(0xFFFBC02D),
-        ),
-        height: 100,
-        width: 100,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 25),
-            const SizedBox(height: 10),
-            Text(title, textAlign: TextAlign.center),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-//
-//

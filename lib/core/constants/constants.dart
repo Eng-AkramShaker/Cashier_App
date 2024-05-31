@@ -4,16 +4,22 @@ import 'package:flutter/material.dart';
 
 //  Colors ========================================================
 
-const primaryColor = Colors.orange;
+const primaryColor = Color(0xFFFBC02D);
+
 const secondaryColor = Color(0xFF2A2D3E);
-const bgColor = Color(0xFF212332);
+const bgColor = Colors.black;
+const w_bgColor = Color.fromARGB(96, 0, 0, 0);
+
 const wtColor = Colors.white;
+
 const greenColor = Colors.green;
-const w_grey_Color = Color.fromARGB(71, 255, 255, 255);
+const w_grey_Color = Color.fromARGB(255, 221, 221, 221);
+
 const gryColor = Color.fromARGB(54, 201, 216, 70);
-const redColor = Color.fromARGB(90, 241, 55, 42);
-const bluColor = Color.fromARGB(90, 29, 149, 247);
-const yalColor = Colors.amber;
+const redColor = Colors.red;
+
+const bluColor = Colors.blue;
+const w_bluColor = Color.fromRGBO(148, 194, 255, 0.37);
 
 //  Size ========================================================
 

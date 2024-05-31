@@ -3,11 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/categories_provider/categories.dart';
-import '../../widets/Buttons/custom_button.dart';
-import '../../widets/empty.dart';
-import '../../widets/rows/row_choose_category.dart';
-import '../../widets/show_snack/total.dart';
-import '../../widets/texts/custom_text.dart';
+import '../../core/widgets/Buttons/custom_button.dart';
+import '../../core/widgets/cards/empty.dart';
+import '../../core/widgets/rows/row_choose_category.dart';
+import '../../core/widgets/show_snack/snak_total.dart';
+import '../../core/widgets/texts/custom_text.dart';
 
 class Total_Screen extends StatefulWidget {
   const Total_Screen({super.key});

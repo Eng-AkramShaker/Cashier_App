@@ -1,8 +1,8 @@
 // ignore_for_file: non_constant_identifier_names, unused_local_variable
 
-import 'package:cashier/widets/texts/custom_text.dart';
+import 'package:cashier/core/widgets/texts/custom_text.dart';
 import 'package:flutter/material.dart';
-import '../empty.dart';
+import '../cards/empty.dart';
 
 Widget Row_Choose_Category(
     {required context, color, required String price, String? count, required String name, required delete_onPressed}) {

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../constants/constants.dart';
 import '../texts/custom_text.dart';
 
 Widget Costume_card({required String img, required String title, required String price}) {
@@ -11,7 +12,7 @@ Widget Costume_card({required String img, required String title, required String
       Card(
         color: Colors.transparent,
         child: Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: const Color(0xFFFBC02D)),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: primaryColor),
             child: Column(
               children: [
                 ClipRRect(
@@ -29,7 +30,7 @@ Widget Costume_card({required String img, required String title, required String
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
-                    color: Colors.black,
+                    color: bgColor,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -42,9 +43,9 @@ Widget Costume_card({required String img, required String title, required String
       Container(
         height: 25,
         width: 50,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: Colors.white),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: wtColor),
         child: Center(
-          child: Custom_Text(text: '42 ', size: 15, color: Colors.black),
+          child: Custom_Text(text: '42 ', size: 15, color: bgColor),
         ),
       ),
     ],
