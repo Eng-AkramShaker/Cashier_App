@@ -5,7 +5,7 @@ import 'package:prompt_dialog/prompt_dialog.dart';
 
 // ================================================================================
 
-Snack_Question({required context, required Widget widget, required onTap}) {
+Snack_Total({required context, required Widget widget, required onTap}) {
   prompt(
     context,
     title: Center(

@@ -1,11 +1,12 @@
 // ignore_for_file: non_constant_identifier_names, must_be_immutable, camel_case_types, unused_local_variable, unused_field, constant_identifier_names, unused_element, sized_box_for_whitespace, avoid_unnecessary_containers, prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print
 
-import 'package:cashier/model/itemes_model.dart';
+import 'package:cashier/models/itemes_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../controllers/categories_provider/categories.dart';
 import '../../widets/cards/costume_card.dart';
+import '../../widets/show_snack/select_menu.dart';
 import '../../widets/texts/custom_text.dart';
 import '../../widets/cards/profile_card.dart';
 import '../total_screen/total_screen.dart';
@@ -63,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(
                           height: 70,
                           width: 150,
-                          child: Image.network("https://i.imgur.com/v3dvpCE.gif", fit: BoxFit.fitWidth),
+                          child: Image.asset("assets/images/logo.png", fit: BoxFit.fitWidth),
                         ),
                         ProfileCard(),
                       ],
@@ -78,6 +79,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Color.fromRGBO(148, 194, 255, 0.37),
                         child: Total_Screen(),
                       ),
+
+                      // -----------------------------------------------------------------------------------
+
                       Padding(
                         padding: const EdgeInsets.only(left: 23),
                         child: Column(
@@ -156,13 +160,32 @@ class _HomeScreenState extends State<HomeScreen> {
                                         onTap: () {
                                           //
 
-                                          prov_Category.addCategory({
-                                            "title": Category[index]['title'].toString(),
-                                            "price": Category[index]['price'],
-                                          });
-                                          setState(() {
-                                            prov_Category.count += Category[index]['price'];
-                                          });
+                                          // prov_Category.addCategory({
+                                          //   "title": Category[index]['title'].toString(),
+                                          //   "price": Category[index]['price'],
+                                          // });
+                                          // setState(() {
+                                          //   prov_Category.count += Category[index]['price'];
+                                          // });
+
+                                          Snack_Select_Menu(
+                                            context: context,
+                                            widget: Container(
+                                              height: 500,
+                                              width: 400,
+                                              child: Column(
+                                                children: [
+                                                  ClipRRect(
+                                                    borderRadius: const BorderRadius.only(
+                                                        topLeft: Radius.circular(12), topRight: Radius.circular(12)),
+                                                    child: Image.network(Category[index]['img'].toString(),
+                                                        height: 150, width: size.width, fit: BoxFit.fill),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            onPressed: () {},
+                                          );
                                         },
                                         child: Costume_card(
                                           img: Category[index]['img'].toString(),
@@ -238,3 +261,6 @@ class CategoryButton extends StatelessWidget {
     );
   }
 }
+
+//
+//

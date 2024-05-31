@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
         navigatorObservers: [FlutterSmartDialog.observer],
         // here
         builder: FlutterSmartDialog.init(),
-        home: const SplashScreen(),
-        // home: const HomeScreen(),
+        // home: const SplashScreen(),
+        home: const HomeScreen(),
       ),
     );
   }

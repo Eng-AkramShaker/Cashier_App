@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/categories_provider/categories.dart';
 import '../../widets/Buttons/custom_button.dart';
-import '../../widets/containers/empty.dart';
+import '../../widets/empty.dart';
 import '../../widets/rows/row_choose_category.dart';
-import '../../widets/snack.dart';
+import '../../widets/show_snack/total.dart';
 import '../../widets/texts/custom_text.dart';
 
 class Total_Screen extends StatefulWidget {
@@ -66,10 +66,10 @@ class _Total_ScreenState extends State<Total_Screen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Custom_Text(text: 'Discounts :    KWD  10.00', size: 15, fontweight: FontWeight.bold, color: Colors.amber),
-                    Custom_Text(text: 'Sub Total :     KWD  250.00', size: 15, fontweight: FontWeight.bold, color: Colors.amber),
-                    Custom_Text(text: 'Surcharge :   KWD  250.00', size: 15, fontweight: FontWeight.bold, color: Colors.amber),
-                    Custom_Text(text: 'Tax :               KWD  250.00', size: 15, fontweight: FontWeight.bold, color: Colors.amber),
+                    Custom_Text(text: 'Discounts :    SR  10.00', size: 15, fontweight: FontWeight.bold, color: Colors.amber),
+                    Custom_Text(text: 'Sub Total :     SR  250.00', size: 15, fontweight: FontWeight.bold, color: Colors.amber),
+                    Custom_Text(text: 'Surcharge :   SR  250.00', size: 15, fontweight: FontWeight.bold, color: Colors.amber),
+                    Custom_Text(text: 'Tax :               SR  250.00', size: 15, fontweight: FontWeight.bold, color: Colors.amber),
                   ],
                 ),
               ),
@@ -217,7 +217,7 @@ class _Total_ScreenState extends State<Total_Screen> {
 
                           Custom_Button(
                             context: context,
-                            title: 'KWD ${provCategory.count}',
+                            title: 'SR ${provCategory.count}',
                             size_text: 25,
                             vertical: 15,
                             backgroundColor: Colors.blue,
@@ -225,10 +225,10 @@ class _Total_ScreenState extends State<Total_Screen> {
                             onPressed: () {
                               //
 
-                              Snack_Question(
+                              Snack_Total(
                                 context: context,
                                 widget: Custom_Text(
-                                    text: " ( KWD ${provCategory.count} ) : المبلغ المراد سدادة هو ",
+                                    text: " ( SR ${provCategory.count} ) : المبلغ المراد سدادة هو ",
                                     size: 20,
                                     fontweight: FontWeight.bold,
                                     color: Colors.black),
