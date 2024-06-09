@@ -5,8 +5,20 @@ import 'package:flutter/material.dart';
 class Categories_Provider with ChangeNotifier {
   //
 
+  List model_group = [];
+  List model_items = [];
+  int selectedCategory = 0;
+
+// --------------------------------------
+
   List List_Categories = [];
-  var count = 00.00;
+  List Category = [];
+  int number = 1;
+  String details = '';
+  List T_F_list = ['', '', ''];
+  int Menu_total = 0;
+
+  double Cal_total = 0.0;
 
 // =============================================================================
 
@@ -18,6 +30,18 @@ class Categories_Provider with ChangeNotifier {
 
   void removeCategory(int index) {
     List_Categories.removeAt(index);
+    cal_Total();
+    notifyListeners();
+  }
+
+  // =============================================================================
+
+  cal_Total() {
+    Cal_total = 0;
+    for (var i = 0; i < List_Categories.length; i++) {
+      Cal_total += double.parse(List_Categories[i]['price'].toString());
+    }
+
     notifyListeners();
   }
 }

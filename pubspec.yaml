@@ -17,17 +17,17 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.0
-
   flutter_smart_dialog: ^4.9.4
   flutter_animate: ^4.2.0+1
   otp_text_field: ^1.1.3
   easy_splash_screen: ^1.0.4
   prompt_dialog:
-
   provider:
   path_provider:
-
   giffy_dialog:
+  responsive_sizer:
+
+  http:
 
 dev_dependencies:
   flutter_test:

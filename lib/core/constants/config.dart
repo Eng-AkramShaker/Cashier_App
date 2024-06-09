@@ -1,9 +1,9 @@
-//import 'package:google_maps_flutter/google_maps_flutter.dart';
-
-// ignore_for_file: non_constant_identifier_names
+//
 
 class Config {
-  static String baseUrl = 'http://93.127.215.9:5000/api/v1/';
+  static String baseUrl = 'https://saudi-innovation.com/api/';
 
-  static String get_All_question = "question?limit=100000000000";
+  static String login = "method/login";
+
+  static String product = "method/falcon_mobile.falcon_mobile.item_group.get_items";
 }

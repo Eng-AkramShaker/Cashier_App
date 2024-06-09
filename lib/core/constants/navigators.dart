@@ -2,19 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 pushNewScreen(BuildContext context, Widget widget) {
-  Navigator.push(
-    context,
-    CupertinoPageRoute(builder: (context) => widget),
-  );
+  Navigator.push(context, CupertinoPageRoute(builder: (context) => widget));
 }
 
 void pushAndRemoveUntil(BuildContext context, Widget screen, {arguments}) {
-  Navigator.pushAndRemoveUntil(
-      context,
-      CupertinoPageRoute(
-        builder: (context) => screen,
-      ),
-      (route) => false);
+  Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context) => screen), (route) => false);
 }
 
 void removeAllNavigation(BuildContext context, Widget screen) {

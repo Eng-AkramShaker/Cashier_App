@@ -1,5 +1,6 @@
 import 'package:cashier/core/constants/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CategoryButton extends StatelessWidget {
   final String title;
@@ -20,18 +21,18 @@ class CategoryButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        height: 10.h,
+        width: 9.w,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: isSelected ? wtColor : primaryColor,
         ),
-        height: 100,
-        width: 100,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 25),
-            const SizedBox(height: 10),
-            Text(title, textAlign: TextAlign.center),
+            Icon(icon, size: 15.sp),
+            SizedBox(height: 1.h),
+            Text(title, textAlign: TextAlign.center, style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.bold)),
           ],
         ),
       ),

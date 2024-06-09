@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 const primaryColor = Color(0xFFFBC02D);
 
-const secondaryColor = Color(0xFF2A2D3E);
+const secondaryColor = Color.fromARGB(255, 214, 150, 10);
 const bgColor = Colors.black;
 const w_bgColor = Color.fromARGB(96, 0, 0, 0);
 
@@ -20,6 +20,13 @@ const redColor = Colors.red;
 
 const bluColor = Colors.blue;
 const w_bluColor = Color.fromRGBO(148, 194, 255, 0.37);
+
+const indigo_Color = Colors.indigo;
+const brown_Color = Colors.brown;
+
+const teal_Color = Colors.teal;
+
+const orange_Color = Color.fromARGB(255, 255, 113, 47);
 
 //  Size ========================================================
 
